@@ -81,3 +81,50 @@ Virtual DOM is just a Normal JS Object
 
 
 
+
+
+# Episode-06
+
+### Monolith Architecture
+- All the code are in the same service
+- If u hv to change a little in he project, u hv to re-compile the whole project and hv to re-deploy it
+- u hv to code in one lang like JS for all the services (like- API COde, UI code, Auth Code, DB code, SMS etc)
+
+### MicroService Architecture
+- All hv the separate project, code of each are in separate service, all has it's own service.
+- This is known as separation of Concern.
+- All these service talk to echother.
+
+- All the service runs on their own port.
+- /     :1234 --> UI
+- /Api  :1000 --> Backend service
+- /SMS  :3000 --> SMS
+- all call eachother to communicate with eachother
+
+- [Architecture_documentation](https://medium.com/koderlabs/introduction-to-monolithic-architecture-and-microservices-architecture-b211a5955c63)
+
+## Fetching
+- There are 2 ways how web Apps and UI Application, fetch data.
+
+- (1) `Page Loads` -> `API` -> `Render`
+
+- (2) As Soon as the Page Loads
+-  It happens `Load` -> `Render` -> `API Call` -> `Re-render`
+- Provides Better UX
+
+-  React has BEST RENDER mechanism
+
+### useEffect ( )
+```
+const Body = () => {
+    useEffect( ()=>{
+        log('Ankit');
+    }, [])
+}
+```
+- Here callback fn which we have passed as argument in useEffect, will be called after rendering UX or, after loading the page of the Body
+
+- when u give input in input Box i.e, `cafe`
+- 4 times Body component has been re-rendered
+
+
